@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    {% include "bootstrap.html" %}
+</head>
+<body>
+<div class="container-fluid">
+    {% include "header.html" %}
+    <section class="content row">
+        <div class="col-md-2 col-md-offset-2">
+            <ul class="goods-filter">
+                <li class="filter-top">
+                    <p>Дата добавления</p>
+                </li>
+                <li>
+                    <p>Период создания</p>
+                </li>
+                <li>
+                    <p>Авторство</p>
+                </li>
+                <li>
+                    <p>Жанр</p>
+                </li>
+                <li>
+                    <p>Цена</p>
+                </li>
+            </ul>
+        </div>
+        <div class="col-md-6">
+            <ul class="goods-list">
+                {% for i in goods %}
+                    <li class="col-md-3">
+                        <div class="row">
+                                <img class="preview col-md-12" src="{{ i.images_set.all.0.url }}">
+                        </div>
+                        <div class="row">
+                            <div class="description">
+                                <a class="goods-title" href="{% url 'goods' i.id %}">{{ i.name }}</a><br/>
+                                <p class="price">
+                                    {{ i.price }} руб.
+                                </p>
+                            </div>
+                        </div>
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </section>
+{% include "footer.html" %}
+</div>
+</body>
+</html>

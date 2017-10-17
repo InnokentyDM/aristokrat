@@ -1,0 +1,296 @@
+body, html{
+    background-color: #F0EFDB;
+    color: #48342B;
+    font-size: 16px;
+    height: 100%;
+}
+header{
+    position: relative;
+    width: 100%;
+    top: 0;
+    height: 60px;
+    background-color: #E2DBC1;
+}
+footer{
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    height: 50px;
+    background-color: #E2DBC1;
+}
+.container-fluid{
+    padding: 0;
+}
+
+.content{
+    align-items:center;
+    height: 100%;
+    width: 100%;
+    margin-top: -60px;
+}
+
+.category-menu-wrapper{
+    position: absolute;
+    top: 35%;
+    right: 20%;
+}
+
+.image-wrapper{
+    height: 100%;
+    margin-top: -60px;
+}
+
+.flower{
+    height: 80%;
+    position: absolute;
+    bottom: 50px;
+}
+
+.logo{
+    margin-left: 30px;
+    line-height: 60px;
+    font-size: 36px;
+    color: #48342B;
+}
+
+.logo:hover{
+    text-decoration: none;
+    color: #48342B;
+}
+
+nav ul li{
+    text-decoration: none;
+    list-style-type: none;
+    border-bottom: 1px solid lightgrey;
+}
+
+.nav-title{
+    font-size: 18px;
+    border-top: 1px solid lightgrey;
+}
+
+.nav-item{
+    color: #48342B;
+}
+
+.nav-item:hover{
+    color: #48342B;
+}
+
+.goods-list{
+    list-style-type: none;
+    margin-top: 60px;
+}
+
+.goods-list li{
+    background-color: #ffffff;
+    margin: 0px 10px 10px 0px;
+}
+
+.price{
+    float: right;
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.goods-title{
+    float: left;
+    display: block;
+    color: #48342B;
+    font-size: 16px;
+}
+
+.goods-title:hover{
+    float: left;
+    display: block;
+    color: #48342B;
+    font-size: 16px;
+}
+
+.preview{
+    max-height: 200px;
+    width: auto;
+    margin: 0px auto;
+    max-width: 200px;
+    height: auto;
+}
+
+.contacts{
+    text-align: center;
+    line-height: 50px;
+}
+
+.goods-filter{
+    list-style-type: none;
+    padding-left: 0px;
+    margin-top: 60px;
+}
+
+.description{
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 10px;
+}
+
+.goods-item{
+    width: 30%;
+}
+
+.goods-filter li{
+    border-bottom: 1px solid lightgrey;
+}
+
+.filter-top{
+    border-top: 1px solid lightgrey;
+}
+
+.search{
+    background-color: #F0EFDB;
+    border-radius: 5px;
+    box-shadow: none;
+    margin-top: 15px;
+    width: 100%;
+}
+
+.search:active{
+    box-shadow: none;
+}
+
+.contacts-header{
+    line-height: 60px;
+    color: #48342B;
+    font-size: 18px;
+    float: right;
+}
+
+.contacts-header:hover{
+    color: #48342B;
+}
+
+.phone-header{
+    line-height: 60px;
+    color: #48342B;
+    font-size: 22px;
+}
+
+.name{
+    font-size: 22px;
+}
+
+
+
+.images-list{
+    list-style-type: none;
+    width: 100%;
+        padding-left: 0px;
+}
+
+.images-list li{
+    position: relative;
+    width: 23%;
+    display: inline-block;
+    margin-right: 5px;
+    background-color: #ffffff;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    z-index: 2;
+}
+
+.images-list li:hover{
+    cursor: pointer;
+}
+
+
+.images-list li img{
+    position: relative;
+    width: 100%;
+    z-index: 1;
+
+}
+
+.mainimage{
+    display: inline-block;
+    background-color: #ffffff;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    text-align: center;
+    width: 97%;
+    margin-right: 5px;
+    height: 250px;
+}
+
+.mainimage img{
+    height: 250px;
+    width: auto;
+}
+
+.preview{
+    width: 50%;
+    display: block;
+    margin: 0 auto;
+}
+.container{
+    margin-top: 20px;
+}
+
+.description p{
+    margin-right: 25px;
+}
+
+.good-data
+{
+    position: relative;
+    display: inline-block;
+    height: 350px;
+}
+
+.price-detail{
+    font-size: 32px;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+/* enable absolute positioning */
+.inner-addon {
+    position: relative;
+}
+
+/* style icon */
+.inner-addon .glyphicon {
+  position: absolute;
+  padding: 10px;
+}
+
+/* align icon */
+.left-addon .glyphicon  { left:  0px;}
+.right-addon .glyphicon { right: 0px;}
+
+/* add padding  */
+.left-addon input  { padding-left:  30px; }
+.right-addon input { padding-right: 30px; }
+
+.related li{
+    list-style-type: none;
+}
+
+.related-images{
+    height: 100px;
+    width: auto;
+
+}
+.related-image-holder
+{
+    background-color: #ffffff;
+    margin-right: -10px;
+}
+
+.related-link a{
+    color: #48342B;
+    text-decoration: none;
+}
+
+.related-link a:hover{
+    color: #48342B;
+
+}

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    {% include "bootstrap.html" %}
+</head>
+<body>
+<div class="container-fluid">
+    {% include "header.html" %}
+    <section class="content row">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 gallery">
+                    <div class="row main">
+                        <div class="mainimage center-block">
+                            <img class="preview col-md-12" src="{{ good.images_set.all.0.url }}">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <ul class="images-list">
+                            {% for image in good.images_set.all %}
+                                <li>
+                                    <img class="preview col-md-12" src="{{ image.url }}">
+                                </li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-md-6 good-data">
+                    <div class="row name">
+                        {{ good.name }}
+                    </div>
+                    <div class="row">
+                        {{ good.edition_date|date:"M d, Y" }}
+                    </div>
+                    <div class="row">
+                        {% if good.creation_date %}
+                            {{ good.creation_date|date:"M d, Y" }}
+                        {% endif %}
+                    </div>
+                    <div class="row">
+                        {% if good.author %}
+                            {{ good.author }}
+                        {% endif %}
+                    </div>
+                    <div class="row">
+                        {% if good.genre %}
+                            {{ good.genre }}
+                        {% endif %}
+                    </div>
+                    <div class="row">
+                        {% if good.size %}
+                            {{ good.size }}
+                        {% endif %}
+                    </div>
+                    <div class="row price-detail">
+                        <p>{{ good.price }} руб.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-6 description">
+                    <p>{{ good.description }}</p>
+                </div>
+            </div>
+            <div class="recomend">
+                <ul class="related col-md-6">
+                    {% for item in related %}
+                        <li class="related-item col-md-4">
+                            <div class="related-image-holder row">
+                                <img class="related-images col-md-12" src="{{ item.images_set.all.0.url }}">
+                            </div>
+                            <div class="related-link row">
+                                <a href="{% url 'goods' item.pk %}">{{ item.name }}</a>
+                            </div>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+
+
+    </section>
+    {% include "footer.html" %}
+</div>
+</body>
+</html>
