@@ -25,7 +25,7 @@ SECRET_KEY = 'ki*iq3ch8046(#7ffx@i1udu_o^bxcxk)=o*hlvo!9e20kda+^'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['5-63-159-178.xen.vps.regruhosting.ru:1024']
 
 
 # Application definition
