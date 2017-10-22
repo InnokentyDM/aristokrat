@@ -15,10 +15,10 @@ Including another URLconf
 """
 from django.conf.urls import url
 
-from goods.views import CategoryGoodsList, GoodsDetail, Search
+from goods.views import CategoryGoodsList, GoodsDetail, Search, GoodsFilter
 
 urlpatterns = [
-    url(r'^/(?P<id>\d+)', CategoryGoodsList.as_view(), name='catalog'),
+    url(r'^/(?P<id>\d+)', GoodsFilter.as_view(), name='catalog'),
     url(r'^/goods/(?P<id>\d+)', GoodsDetail.as_view(), name='goods'),
-    url(u'^/search/(?P<search>[\w\-]+)/$', Search.as_view(), name='search')
+    url(u'^/search/(?P<search>[\w\-]+)/$', Search.as_view(), name='search'),
 ]

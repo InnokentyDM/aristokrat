@@ -25,7 +25,7 @@ SECRET_KEY = 'ki*iq3ch8046(#7ffx@i1udu_o^bxcxk)=o*hlvo!9e20kda+^'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['5-63-159-178.xen.vps.regruhosting.ru']
+ALLOWED_HOSTS = ['aristokrat33.ru', '5-63-159-178.xen.vps.regruhosting.ru', '127.0.0.1']
 
 
 # Application definition
@@ -39,8 +39,19 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'categories',
     'goods',
-    'references'
+    'references',
+    'django_filters',
 ]
+
+def FILTERS_VERBOSE_LOOKUPS():
+    from django_filters.conf import DEFAULTS
+
+    verbose_lookups = DEFAULTS['VERBOSE_LOOKUPS'].copy()
+    verbose_lookups.update({
+        'gt': 'от',
+        'lt': 'до',
+    })
+    return verbose_lookups
 
 STATICFILES_FINDERS = (
     'django.contrib.staticfiles.finders.FileSystemFinder',

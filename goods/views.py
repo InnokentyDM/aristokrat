@@ -3,7 +3,9 @@ from django.shortcuts import render, render_to_response
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
 from django.views.generic import ListView, DetailView
+from django_filters.views import FilterView
 
+from goods.filters import GoodsFilter
 from .models import *
 
 
@@ -17,6 +19,11 @@ class CategoryGoodsList(ListView):
     def get_queryset(self):
         qs = GoodsBase.objects.filter(category__in=self.kwargs['id'] ,public=True).order_by('-edition_date')
         return qs
+
+class GoodsFilter(FilterView):
+    model = GoodsBase
+    filterset_class = GoodsFilter
+    template_name = 'goods.html'
 
 
 class GoodsDetail(DetailView):

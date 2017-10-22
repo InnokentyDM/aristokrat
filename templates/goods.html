@@ -9,46 +9,59 @@
 <div class="container-fluid">
     {% include "header.html" %}
     <section class="content row">
+    {% block content %}
         <div class="col-md-2 col-md-offset-2">
-            <ul class="goods-filter">
-                <li class="filter-top">
-                    <p>Дата добавления</p>
-                </li>
-                <li>
-                    <p>Период создания</p>
-                </li>
-                <li>
-                    <p>Авторство</p>
-                </li>
-                <li>
-                    <p>Жанр</p>
-                </li>
-                <li>
-                    <p>Цена</p>
-                </li>
-            </ul>
+            {#            <ul class="goods-filter">#}
+            {#                <li class="filter-top">#}
+            {#                    <p>Дата добавления</p>#}
+            {#                </li>#}
+            {#                <li>#}
+            {#                    <p>Период создания</p>#}
+            {#                </li>#}
+            {#                <li>#}
+            {#                    <p>Жанр</p>#}
+            {#                </li>#}
+            {#                <li>#}
+            {#                    <p>Цена</p>#}
+            {#                </li>#}
+            {#            </ul>#}
+
+                <form class="goods-filter" action="" method="get">
+                    {{ filter.form.as_p }}
+                    <input type="submit" />
+                </form>
+{#                {% for obj in filter.qs %}#}
+{#                    {{ obj.name }} - ${{ obj.price }}<br />#}
+{#                {% endfor %}#}
+
+
         </div>
         <div class="col-md-6">
             <ul class="goods-list">
-                {% for i in goods %}
-                    <li class="col-md-3">
-                        <div class="row">
-                                <img class="preview col-md-12" src="{{ i.images_set.all.0.url }}">
-                        </div>
-                        <div class="row">
-                            <div class="description">
-                                <a class="goods-title" href="{% url 'goods' i.id %}">{{ i.name }}</a><br/>
-                                <p class="price">
-                                    {{ i.price }} руб.
-                                </p>
+                {% for i in filter.qs %}
+                    <li class="categories-list">
+                        <div class="col-md-12">
+                            <div class="row">
+                                <div class="category-image-wrapper">
+                                    <img class="category-preview col-md-12" src="{{ i.images_set.all.0.url }}">
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="description">
+                                    <a class="goods-title" href="{% url 'goods' i.id %}">{{ i.name }}</a><br/>
+                                    <p class="price">
+                                        {{ i.price }} руб.
+                                    </p>
+                                </div>
                             </div>
                         </div>
                     </li>
                 {% endfor %}
             </ul>
         </div>
+    {% endblock %}
     </section>
-{% include "footer.html" %}
+    {% include "footer.html" %}
 </div>
 </body>
 </html>

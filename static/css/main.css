@@ -1,8 +1,24 @@
+@font-face {
+    font-family: Baskerville; /* Имя шрифта */
+    src: url(C:\Users\Платон\PycharmProjects\aristokrat\static\fonts\7101.ttf); /* Путь к файлу со шрифтом */
+}
+
+@font-face {
+    font-family: Baskerville-bold; /* Имя шрифта */
+    src: url(C:\Users\Платон\PycharmProjects\aristokrat\static\fonts\7099.ttf); /* Путь к файлу со шрифтом */
+}
+
 body, html{
     background-color: #F0EFDB;
     color: #48342B;
-    font-size: 16px;
+    font-size: 18px;
     height: 100%;
+    font-family: 'Baskerville Win95BT', arial;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+li, p, a{
+    font-family: 'Baskerville Win95BT', arial;
 }
 header{
     position: relative;
@@ -51,6 +67,7 @@ footer{
     line-height: 60px;
     font-size: 36px;
     color: #48342B;
+    text-transform: uppercase;
 }
 
 .logo:hover{
@@ -67,6 +84,7 @@ nav ul li{
 .nav-title{
     font-size: 18px;
     border-top: 1px solid lightgrey;
+    font-family: 'Baskerville Bold Win95BT', arial;
 }
 
 .nav-item{
@@ -98,6 +116,8 @@ nav ul li{
     display: block;
     color: #48342B;
     font-size: 16px;
+    margin-left: 10px;
+    margin-right: 25px;
 }
 
 .goods-title:hover{
@@ -115,6 +135,16 @@ nav ul li{
     height: auto;
 }
 
+.category-preview{
+    max-height: 150px;
+    width: auto;
+    margin: 0 auto;
+    margin-top: 10px;
+    /*max-width: 150px;*/
+    height: auto;
+}
+
+
 .contacts{
     text-align: center;
     line-height: 50px;
@@ -122,14 +152,16 @@ nav ul li{
 
 .goods-filter{
     list-style-type: none;
-    padding-left: 0px;
+    padding-left: 0;
     margin-top: 60px;
+    margin-left: 30px;
 }
 
 .description{
-    margin-left: 10px;
+    margin-left: 0;
     margin-right: 10px;
     margin-top: 10px;
+    padding: 0!important;
 }
 
 .goods-item{
@@ -174,6 +206,7 @@ nav ul li{
 }
 
 .name{
+    font-family: 'Baskerville Bold Win95BT', arial;
     font-size: 22px;
 }
 
@@ -182,7 +215,7 @@ nav ul li{
 .images-list{
     list-style-type: none;
     width: 100%;
-        padding-left: 0px;
+    padding-left: 0px;
 }
 
 .images-list li{
@@ -216,12 +249,16 @@ nav ul li{
     text-align: center;
     width: 97%;
     margin-right: 5px;
-    height: 250px;
+    display: flex;
+    justify-content: center;
+    margin: 10px 0;
 }
 
 .mainimage img{
-    height: 250px;
+    height: auto;
     width: auto;
+    max-width: 300px;
+    max-height: 300px;
 }
 
 .preview{
@@ -234,7 +271,8 @@ nav ul li{
 }
 
 .description p{
-    margin-right: 25px;
+    /*margin-right: 25px;*/
+    font-size: 16px;
 }
 
 .good-data
@@ -258,8 +296,8 @@ nav ul li{
 
 /* style icon */
 .inner-addon .glyphicon {
-  position: absolute;
-  padding: 10px;
+    position: absolute;
+    padding: 10px;
 }
 
 /* align icon */
@@ -270,8 +308,15 @@ nav ul li{
 .left-addon input  { padding-left:  30px; }
 .right-addon input { padding-right: 30px; }
 
+.related{
+    margin-left: 0!important;
+    padding-left: 0!important;
+}
+
 .related li{
     list-style-type: none;
+    padding-left: 0;
+    padding-right: 10px;
 }
 
 .related-images{
@@ -282,15 +327,62 @@ nav ul li{
 .related-image-holder
 {
     background-color: #ffffff;
-    margin-right: -10px;
+    margin-right: 15px;
+    display: flex;
+    justify-content: center;
 }
 
 .related-link a{
     color: #48342B;
     text-decoration: none;
+    font-size: 16px;
 }
 
 .related-link a:hover{
     color: #48342B;
+}
 
+.category-image-wrapper{
+    display: flex;
+    justify-content: center;
+}
+
+.categories-list{
+    width: 30%;
+    display: inline-block;
+}
+
+
+@media (max-width: 1919px) {
+    .category-preview{
+        max-height: 110px;
+    }
+}
+
+@media (max-width: 1350px) {
+    .category-preview{
+        max-height: 90px;
+    }
+
+    .preview{
+        max-height: 100px;
+    }
+}
+
+@media (max-width: 1120px) {
+    .category-preview{
+        max-height: 70px;
+    }
+}
+
+.goods-filter input[type="submit"]{
+    background-color: #ffffff;
+    box-shadow: none;
+    border: none;
+    padding-left: 25px;
+    padding-right: 25px;
+}
+
+#id_edition_date{
+    width: 100%;
 }

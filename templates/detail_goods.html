@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <title>Title</title>
     {% include "bootstrap.html" %}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/5.3.0/ekko-lightbox.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/5.3.0/ekko-lightbox.js"></script>
 </head>
 <body>
 <div class="container-fluid">
@@ -14,14 +16,18 @@
                 <div class="col-md-6 gallery">
                     <div class="row main">
                         <div class="mainimage center-block">
-                            <img class="preview col-md-12" src="{{ good.images_set.all.0.url }}">
+                            <a href="{{ good.images_set.all.0.url }}" data-gallery="example-gallery" data-toggle="lightbox">
+                            <img id="bigimage" class="preview col-md-12" src="{{ good.images_set.all.0.url }}">
+                                </a>
                         </div>
                     </div>
                     <div class="row">
                         <ul class="images-list">
                             {% for image in good.images_set.all %}
                                 <li>
+                                    <a href="{{ image.url }}" data-toggle="lightbox" data-gallery="example-gallery">
                                     <img class="preview col-md-12" src="{{ image.url }}">
+                                    </a>
                                 </li>
                             {% endfor %}
                         </ul>
@@ -32,11 +38,11 @@
                         {{ good.name }}
                     </div>
                     <div class="row">
-                        {{ good.edition_date|date:"M d, Y" }}
+                        <label>Дата добавления: </label>{{ good.edition_date|date:"d.m.y" }}
                     </div>
                     <div class="row">
                         {% if good.creation_date %}
-                            {{ good.creation_date|date:"M d, Y" }}
+                            {{ good.creation_date|date:"%d/%m/%y" }}
                         {% endif %}
                     </div>
                     <div class="row">
@@ -69,11 +75,13 @@
                     {% for item in related %}
                         <li class="related-item col-md-4">
                             <div class="related-image-holder row">
+                                <a href="{% url 'goods' item.pk %}">
                                 <img class="related-images col-md-12" src="{{ item.images_set.all.0.url }}">
+                                    </a>
                             </div>
-                            <div class="related-link row">
-                                <a href="{% url 'goods' item.pk %}">{{ item.name }}</a>
-                            </div>
+{#                            <div class="related-link row">#}
+{#                                {{ item.name }}#}
+{#                            </div>#}
                         </li>
                     {% endfor %}
                 </ul>
@@ -84,5 +92,16 @@
     </section>
     {% include "footer.html" %}
 </div>
+<script>
+$(document).on('click', '[data-toggle="lightbox"]', function(event) {
+                event.preventDefault();
+                $(this).ekkoLightbox({
+                    alwaysShowClose: true,
+                    maxWidth: 1400,
+                    width: 1400
+
+                });
+            });
+</script>
 </body>
 </html>

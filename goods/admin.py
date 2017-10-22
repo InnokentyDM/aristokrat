@@ -9,6 +9,7 @@ class ImagesInline(admin.TabularInline):
 class GoodsBaseAdmin(admin.ModelAdmin):
     readonly_fields = ['edition_date']
     inlines = [ImagesInline]
+    save_as = True
 
     class Meta:
         model = GoodsBase
@@ -18,6 +19,7 @@ class PicturesAdmin(admin.ModelAdmin):
     filter_horizontal = ('category',)
     readonly_fields = ['edition_date']
     inlines = [ImagesInline]
+    save_as = True
 
     class Meta:
         model = Pictures
@@ -29,6 +31,7 @@ class GoodsAdmin(admin.ModelAdmin):
     list_display = ['id', 'name', 'description', 'price', 'public']
     filter_horizontal = ('category',)
     inlines = [ImagesInline]
+    save_as = True
 
     class Meta:
         model = Goods
@@ -40,6 +43,7 @@ class AntiquesAdmin(admin.ModelAdmin):
     inlines = [ImagesInline]
     list_display = ['id', 'name', 'description', 'price', 'public']
     filter_horizontal = ('category',)
+    save_as = True
 
     class Meta:
         model = Antiques
