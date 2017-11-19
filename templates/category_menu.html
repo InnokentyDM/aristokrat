@@ -1,12 +1,10 @@
 <!DOCTYPE html>
 {% load static %}
-<nav>
-    <ul>
-        <li class="nav-title">Все категории</li>
-        {% for i in categories %}
-            <li>
-                <a class="nav-item" href="{% url 'catalog' i.id %}">{{ i.name }}</a></li>
-            </li>
-        {% endfor %}
-    </ul>
-</nav>
+
+<li class="nav-title">Все категории</li>
+{% for i in categories %}
+    <li>
+        <a class="nav-item" href="{% url 'catalog' i.id %}">{{ i.name }}</a></li>
+    </li>
+{% endfor %}
+

@@ -1,20 +1,40 @@
 <header>
     <div class="row">
-        <div class="col-md-2 col-md-offset-2">
-            <a class="logo" href="{% url 'categories' %}">Аристократ</a>
-        </div>
-        <div class="col-md-1 col-md-offset-1">
-            <a class="contacts-header" href="#">Контакты</a>
-        </div>
-        <div class="col-md-2">
-            <div class="inner-addon right-addon">
-                <a id="search-btn" class="glyph-s glyphicon glyphicon-search"></a>
-                <input placeholder="Поиск" class="search form-control" type="text" id="search"/>
+    </div>
+    <div class="row">
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <div class="col-md-2 col-md-offset-2">
+                        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                            <span class="icon-bar"></span>
+                        </button>
+                        <a class="logo" href="{% url 'categories' %}">Аристократ</a>
+                    </div>
+                    {#                    <div class="col-md-1 hidden-xs-up col-xs-offset-0 col-md-offset-1">#}
+                    {#                        <a class="contacts-header" href="#">Контакты</a>#}
+                    {#                    </div>#}
+                    <div class="col-md-2 col-md-offset-2 col-xs-12 search-wr">
+                        <div class="inner-addon right-addon">
+                            <a id="search-btn" class="glyph-s glyphicon glyphicon-search"></a>
+                            <input placeholder="Поиск" class="search form-control" type="text" id="search"/>
+                        </div>
+                    </div>
+                    <div class="col-md-2 col-xs-12">
+                        <p class="phone-header">8 904 567 89 43</p>
+                    </div>
+                </div>
+                <div class="collapse navbar-collapse" id="myNavbar">
+                    <ul class="nav navbar-nav">
+                        {% include "category_menu.html" %}
+                    </ul>
+                </div>
             </div>
-        </div>
-{#        <button id="search-btn" >Поиск</button>#}
-        <div class="col-md-2">
-            <p class="phone-header">8 904 567 89 43</p>
-        </div>
+        </nav>
     </div>
 </header>
+
+
+

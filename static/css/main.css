@@ -15,7 +15,7 @@ body, html{
     height: 100%;
     font-family: 'Baskerville Win95BT', arial;
     overflow-x: hidden;
-    overflow-y: hidden;
+    /*overflow-y: hidden;*/
 }
 li, p, a{
     font-family: 'Baskerville Win95BT', arial;
@@ -87,6 +87,14 @@ nav ul li{
     font-family: 'Baskerville Bold Win95BT', arial;
 }
 
+.navbar-default .navbar-toggle:focus, .navbar-default .navbar-toggle:hover{
+    background-color: #E2DBC1;
+}
+
+.navbar-default .navbar-nav li a{
+    color: #48342B;
+}
+
 .nav-item{
     color: #48342B;
 }
@@ -109,6 +117,18 @@ nav ul li{
     float: right;
     font-size: 18px;
     font-weight: bold;
+}
+
+.collapse{
+    visibility: hidden;
+}
+
+.navbar-header{
+    position: relative;
+    width: 100%;
+    top: 0;
+    height: 60px;
+    background-color: #E2DBC1;
 }
 
 .goods-title{
@@ -324,6 +344,11 @@ nav ul li{
     width: auto;
 
 }
+
+.mobile-nav{
+    visibility: hidden;
+}
+
 .related-image-holder
 {
     background-color: #ffffff;
@@ -369,6 +394,75 @@ nav ul li{
     }
 }
 
+@media (max-device-width: 480px){
+    .categories-list{
+        width: 100%;
+    }
+
+    .mobile-nav{
+        visibility: visible;
+    }
+
+    .contacts-header{
+        visibility: inherit;
+    }
+
+    .category-menu-wrapper{
+        visibility: hidden;
+    }
+
+    .navbar-default{
+        background-color: #F0EFDB;
+    }
+
+    .flower{
+        visibility: hidden;
+    }
+
+    .contacts-header{
+        visibility: hidden;
+    }
+
+    .nav-item{
+        font-size: 32px;
+    }
+
+    .nav ul li:hover{
+        background-color: #ffffff;
+    }
+
+    .nav-title{
+        font-size: 32px;
+    }
+
+    .navbar-nav{
+        margin-left: 10px;
+    }
+
+
+
+    .nav li a{
+        padding-left: 0px;
+    }
+
+    .logo{
+        font-size: 46px;
+        text-align: center;
+        margin-top: 15px;
+    }
+
+    header{
+        height: 120px;
+        width: 100%;
+        display: inline-block;
+        text-align: center;
+    }
+
+    .phone-header{
+        visibility: hidden;
+    }
+}
+
 @media (max-width: 1120px) {
     .category-preview{
         max-height: 70px;
@@ -385,4 +479,117 @@ nav ul li{
 
 #id_edition_date{
     width: 100%;
+}
+
+/* Portrait and Landscape */
+@media only screen
+and (min-device-width: 375px)
+and (max-device-width: 667px)
+and (-webkit-min-device-pixel-ratio: 2) {
+
+}
+
+/* Portrait */
+@media only screen
+and (min-device-width: 375px)
+and (max-device-width: 667px)
+and (-webkit-min-device-pixel-ratio: 2)
+and (orientation: portrait) {
+    .row{
+        margin: 0;
+    }
+
+    .container-fluid .navbar-collapse, .container-fluid .navbar-header, .container .navbar-collapse, .container .navbar-header{
+        margin: 0;
+    }
+    .logo{
+        margin: 0;
+        float: left;
+        padding: 0;
+        font-size: 40px;
+    }
+    .collapse{
+        visibility: inherit;
+        display: none;
+    }
+    header{
+        text-align: left;
+    }
+    .navbar-toggle{
+        height: 46px;
+        margin-right: 0px;
+    }
+    .contacts{
+        line-height: inherit;
+    }
+    .goods-list{
+        padding: 0;
+        margin-bottom: 90px;
+    }
+
+    .category-preview{
+        max-height: 120px;
+    }
+
+    .related-images{
+        height: 120px;
+    }
+
+    .mainimage{
+        margin-right: 0px;
+    }
+
+    .images-list li{
+        width: 22%;
+        border: 1px solid #E2DBC1;
+    }
+
+    .gallery{
+        padding-right: 0;
+        padding-left: 0;
+    }
+
+    .related-item{
+        margin-bottom: 3px;
+    }
+
+    .related{
+        margin-right: 0;
+        padding-right: 0;
+    }
+
+    .related li{
+        padding-right: 0;
+    }
+
+    .description{
+        margin-right: 0;
+    }
+
+    footer{
+        height: auto;
+    }
+
+    .container{
+        margin-bottom: 80px;
+        margin-top: 50px;
+    }
+
+    .good-data{
+        height: 150px;
+        width: 100%;
+    }
+
+    .goods-filter{
+        margin-left: 0px;
+    }
+}
+
+/* Landscape */
+@media only screen
+and (min-device-width: 375px)
+and (max-device-width: 667px)
+and (-webkit-min-device-pixel-ratio: 2)
+and (orientation: landscape) {
+
 }

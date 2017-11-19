@@ -4,18 +4,22 @@
     <meta charset="UTF-8">
     <title>Title</title>
     {% load static %}
-{% include "bootstrap.html" %}
+    {% include "bootstrap.html" %}
 </head>
 <body>
-        {% include "header.html" %}
-        <section class="content row">
-            <div class="col-md-5 col-md-offset-2 image-wrapper">
-                <img class="flower" src="{% static '/assets/flower.png' %}">
-            </div>
-            <div class="col-md-2 category-menu-wrapper">
+{% include "header.html" %}
+<section class="content row">
+    <div class="col-md-5 col-md-offset-2 image-wrapper">
+        <img class="flower" src="{% static '/assets/flower.png' %}">
+    </div>
+    <div class="col-md-2 col-xs-12 category-menu-wrapper">
+        <nav>
+            <ul>
                 {% include "category_menu.html" %}
-            </div>
-        </section>
-        {% include "footer.html" %}
+            </ul>
+        </nav>
+    </div>
+</section>
+{% include "footer.html" %}
 </body>
 </html>

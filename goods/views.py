@@ -25,6 +25,11 @@ class GoodsFilter(FilterView):
     filterset_class = GoodsFilter
     template_name = 'goods.html'
 
+    def get_context_data(self, **kwargs):
+        context = super(GoodsFilter, self).get_context_data(**kwargs)
+        context['categories'] = Categories.objects.all()
+        return context
+
 
 class GoodsDetail(DetailView):
     model = GoodsBase
@@ -36,6 +41,7 @@ class GoodsDetail(DetailView):
     def get_context_data(self, **kwargs):
         context = super(GoodsDetail, self).get_context_data(**kwargs)
         context['related'] = GoodsBase.objects.all().order_by('-id')[:3]
+        context['categories'] = Categories.objects.all()
         return context
 
 
