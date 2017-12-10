@@ -8,18 +8,20 @@
 </head>
 <body>
 {% include "header.html" %}
-<section class="content row">
-    <div class="col-md-5 col-md-offset-2 image-wrapper">
+<div class="container">
+    <div class="row">
+
         <img class="flower" src="{% static '/assets/flower.png' %}">
+
+        <div class="col-md-2 col-xs-12 category-menu-wrapper">
+            <nav>
+                <ul>
+                    {% include "category_menu.html" %}
+                </ul>
+            </nav>
+        </div>
     </div>
-    <div class="col-md-2 col-xs-12 category-menu-wrapper">
-        <nav>
-            <ul>
-                {% include "category_menu.html" %}
-            </ul>
-        </nav>
-    </div>
-</section>
+</div>
 {% include "footer.html" %}
 </body>
 </html>

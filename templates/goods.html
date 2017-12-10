@@ -8,9 +8,11 @@
 <body>
 <div class="container-fluid">
     {% include "header.html" %}
-    <section class="content row">
+
     {% block content %}
-        <div class="col-md-2 col-md-offset-2">
+        <div class="container">
+        <div class="row">
+        <div class="col-md-4 ">
             {#            <ul class="goods-filter">#}
             {#                <li class="filter-top">#}
             {#                    <p>Дата добавления</p>#}
@@ -36,7 +38,21 @@
 
 
         </div>
-        <div class="col-md-6">
+        <div class="col-md-8 goods">
+        <div class="row text-center">
+
+                {% for i in filter.qs %}
+                     <div class="col-md-4 blockgoods">
+                     <div class="blockgoods-content">
+                    <img src="{{ i.images_set.all.0.url }}">
+                    <h1>{{ i.name }}</h1>
+                    <p>{{ i.price }} руб.</p>
+                     </div>
+                    </div>
+                {% endfor %}
+
+        </div>
+        <!--
             <ul class="goods-list">
                 {% for i in filter.qs %}
                     <li class="categories-list">
@@ -58,9 +74,13 @@
                     </li>
                 {% endfor %}
             </ul>
+
+            -->
+        </div>
+        </div>
         </div>
     {% endblock %}
-    </section>
+
     {% include "footer.html" %}
 </div>
 </body>

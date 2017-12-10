@@ -31,12 +31,54 @@ footer{
     position: absolute;
     width: 100%;
     bottom: 0;
-    height: 50px;
+
     background-color: #E2DBC1;
 }
 
 .container{
+
+}
+
+.goods{
     margin-top: 90px;
+}
+
+.blockgoods{
+    margin: 10px;
+    width: 30%;
+}
+
+.blockgoods h1{
+    background: #fff;
+    font-size: 18px;
+}
+
+.blockgoods p{
+    text-align: right;
+    font-family: "Baskerville Bold Win95BT";
+}
+
+
+.blockgoods-content {
+    background: #fff;
+     height: 280px;
+    width: 240px;
+}
+
+
+.blockgoods-content img {
+
+    overflow: hidden;
+     height: 200px;
+    width: 200px;
+
+}
+
+#search-btn{
+    position: absolute;
+    top:25px;
+    right: 20px;
+    color: rgb(72, 52, 43);
 }
 
 .container-fluid{
@@ -60,9 +102,19 @@ footer{
     right: 20%;
 }
 
+.category-menu-wrapper{
+    position: absolute;
+    top: 35%;
+    right: 20%;
+}
+
+
+.category-menu-wrapper ul li{
+    padding: 5px;
+}
+
 .image-wrapper{
     height: 100%;
-    margin-top: -60px;
 }
 
 .flower{
@@ -102,6 +154,10 @@ nav ul li{
 
 .navbar-default .navbar-nav li a{
     color: #48342B;
+}
+
+.navbar-default {
+    border: 0px;
 }
 
 .nav-item{
@@ -234,12 +290,18 @@ nav ul li{
     font-size: 22px;
 }
 
+@media screen and (max-width: 1140px){
+    .phone-header {
+        font-size: 18px;
+    }
+    .category-menu-wrapper {
+    left:0%;
+}
+
 .name{
     font-family: 'Baskerville Bold Win95BT', arial;
     font-size: 22px;
 }
-
-
 
 .images-list{
     list-style-type: none;
@@ -331,7 +393,7 @@ nav ul li{
 
 /* align icon */
 .left-addon .glyphicon  { left:  0px;}
-.right-addon .glyphicon { right: 0px;}
+.right-addon .glyphicon { right: 0px; color: black;}
 
 /* add padding  */
 .left-addon input  { padding-left:  30px; }
@@ -428,6 +490,7 @@ nav ul li{
 
     .flower{
         visibility: hidden;
+        height: 0px;
     }
 
     .contacts-header{
@@ -597,6 +660,10 @@ and (orientation: portrait) {
     }
 }
 
+.category-menu-wrapper ul li{
+    padding: 5px;
+}
+
 /* Landscape */
 @media only screen
 and (min-device-width: 375px)
@@ -604,4 +671,9 @@ and (max-device-width: 667px)
 and (-webkit-min-device-pixel-ratio: 2)
 and (orientation: landscape) {
 
+}
+
+
+.icon-bar {
+        background-color: #ededed;
 }
