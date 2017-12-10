@@ -11,48 +11,50 @@
 
     {% block content %}
         <div class="container">
-        <div class="row">
-        <div class="col-md-4 ">
-            {#            <ul class="goods-filter">#}
-            {#                <li class="filter-top">#}
-            {#                    <p>Дата добавления</p>#}
-            {#                </li>#}
-            {#                <li>#}
-            {#                    <p>Период создания</p>#}
-            {#                </li>#}
-            {#                <li>#}
-            {#                    <p>Жанр</p>#}
-            {#                </li>#}
-            {#                <li>#}
-            {#                    <p>Цена</p>#}
-            {#                </li>#}
-            {#            </ul>#}
+            <div class="row">
+                <div class="col-md-4 ">
+                    {#            <ul class="goods-filter">#}
+                    {#                <li class="filter-top">#}
+                    {#                    <p>Дата добавления</p>#}
+                    {#                </li>#}
+                    {#                <li>#}
+                    {#                    <p>Период создания</p>#}
+                    {#                </li>#}
+                    {#                <li>#}
+                    {#                    <p>Жанр</p>#}
+                    {#                </li>#}
+                    {#                <li>#}
+                    {#                    <p>Цена</p>#}
+                    {#                </li>#}
+                    {#            </ul>#}
 
-                <form class="goods-filter" action="" method="get">
-                    {{ filter.form.as_p }}
-                    <input type="submit" />
-                </form>
-{#                {% for obj in filter.qs %}#}
-{#                    {{ obj.name }} - ${{ obj.price }}<br />#}
-{#                {% endfor %}#}
+                    <form class="goods-filter" action="" method="get">
+                        {{ filter.form.as_p }}
+                        <input type="submit" />
+                    </form>
+                    {#                {% for obj in filter.qs %}#}
+                    {#                    {{ obj.name }} - ${{ obj.price }}<br />#}
+                    {#                {% endfor %}#}
 
 
-        </div>
-        <div class="col-md-8 goods">
-        <div class="row text-center">
+                </div>
+                <div class="col-md-8 goods">
+                    <div class="row text-center">
 
-                {% for i in filter.qs %}
-                     <div class="col-md-4 blockgoods">
-                     <div class="blockgoods-content">
-                    <img src="{{ i.images_set.all.0.url }}">
-                    <h1>{{ i.name }}</h1>
-                    <p>{{ i.price }} руб.</p>
-                     </div>
+                        {% for i in filter.qs %}
+                            <a class="good" href="{% url 'goods' i.id %}">
+                                <div class="col-md-4 blockgoods">
+                                    <div class="blockgoods-content">
+                                        <img src="{{ i.images_set.all.0.url }}">
+                                        <h1>{{ i.name }}</h1>
+                                        <p>{{ i.price }} руб.</p>
+                                    </div>
+                                </div>
+                            </a>
+                        {% endfor %}
+
                     </div>
-                {% endfor %}
-
-        </div>
-        <!--
+                    <!--
             <ul class="goods-list">
                 {% for i in filter.qs %}
                     <li class="categories-list">
@@ -76,8 +78,8 @@
             </ul>
 
             -->
-        </div>
-        </div>
+                </div>
+            </div>
         </div>
     {% endblock %}
 

@@ -10,98 +10,101 @@
 <body>
 <div class="container-fluid">
     {% include "header.html" %}
-    <section class="content row">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6 gallery">
-                    <div class="row main">
-                        <div class="mainimage center-block">
-                            <a href="{{ good.images_set.all.0.url }}" data-gallery="example-gallery" data-toggle="lightbox">
-                            <img id="bigimage" class="preview col-md-12" src="{{ good.images_set.all.0.url }}">
-                                </a>
+    <div class="container mobile-body" >
+        <div class="row" style="margin-top: 50px">
+            <div class="col-md-6 gallery">
+                <div class="mainimage center-block">
+                    <ul id="imageGallery">
+                        {% for image in good.images_set.all %}
+                            <li data-thumb="{{ image.url }}" data-src="{{ image.url }}">
+                                <img class="gallery" src="{{ image.url }}" />
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-6 good-data">
+                <div class="row name">
+                    <h1 style="margin-top: 0px!important;">{{ good.name }}</h1>
+                </div>
+                <div class="row">
+                    <label>Дата добавления: </label>{{ good.edition_date|date:"d.m.y" }}
+                </div>
+                <div class="row">
+                    {% if good.creation_date %}
+                        {{ good.creation_date|date:"%d/%m/%y" }}
+                    {% endif %}
+                </div>
+                <div class="row">
+                    {% if good.author %}
+                        {{ good.author }}
+                    {% endif %}
+                </div>
+                <div class="row">
+                    {% if good.genre %}
+                        {{ good.genre }}
+                    {% endif %}
+                </div>
+                <div class="row">
+                    {% if good.size %}
+                        {{ good.size }}
+                    {% endif %}
+                </div>
+
+                    <div class="price-detail" style="  font-size: 32px;
+    position: relative;
+    bottom: 0;
+    right: 0;
+    margin-top: 45%;
+    text-align: right;">
+                    <p>{{ good.price }} руб.</p>
                         </div>
-                    </div>
-                    <div class="row">
-                        <ul class="images-list">
-                            {% for image in good.images_set.all %}
-                                <li>
-                                    <a href="{{ image.url }}" data-toggle="lightbox" data-gallery="example-gallery">
-                                    <img class="preview col-md-12" src="{{ image.url }}">
-                                    </a>
-                                </li>
-                            {% endfor %}
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-md-6 good-data">
-                    <div class="row name">
-                        {{ good.name }}
-                    </div>
-                    <div class="row">
-                        <label>Дата добавления: </label>{{ good.edition_date|date:"d.m.y" }}
-                    </div>
-                    <div class="row">
-                        {% if good.creation_date %}
-                            {{ good.creation_date|date:"%d/%m/%y" }}
-                        {% endif %}
-                    </div>
-                    <div class="row">
-                        {% if good.author %}
-                            {{ good.author }}
-                        {% endif %}
-                    </div>
-                    <div class="row">
-                        {% if good.genre %}
-                            {{ good.genre }}
-                        {% endif %}
-                    </div>
-                    <div class="row">
-                        {% if good.size %}
-                            {{ good.size }}
-                        {% endif %}
-                    </div>
-                    <div class="row price-detail">
-                        <p>{{ good.price }} руб.</p>
-                    </div>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-6 description">
-                    <p>{{ good.description }}</p>
-                </div>
-            </div>
-            <div class="recomend">
-                <ul class="related col-md-6">
-                    {% for item in related %}
-                        <li class="related-item col-md-4">
-                            <div class="related-image-holder row">
-                                <a href="{% url 'goods' item.pk %}">
-                                <img class="related-images col-md-12" src="{{ item.images_set.all.0.url }}">
-                                    </a>
-                            </div>
-{#                            <div class="related-link row">#}
-{#                                {{ item.name }}#}
-{#                            </div>#}
-                        </li>
-                    {% endfor %}
-                </ul>
+
             </div>
         </div>
+        <div class="row">
+            <div class="col-md-6 description">
+                <p>{{ good.description }}</p>
+            </div>
+        </div>
+        <div class="recomend">
+            <ul class="related col-md-6">
+                {% for item in related %}
+                    <li class="related-item col-md-4">
+                        <div class="related-image-holder row">
+                            <a href="{% url 'goods' item.pk %}">
+                                <img class="related-images col-md-12" src="{{ item.images_set.all.0.url }}">
+                            </a>
+                        </div>
+                        {#                            <div class="related-link row">#}
+                        {#                                {{ item.name }}#}
+                        {#                            </div>#}
+                    </li>
+                {% endfor %}
+            </ul>
+        </div>
+    </div>
 
 
-    </section>
     {% include "footer.html" %}
 </div>
-<script>
-$(document).on('click', '[data-toggle="lightbox"]', function(event) {
-                event.preventDefault();
-                $(this).ekkoLightbox({
-                    alwaysShowClose: true,
-                    maxWidth: 1400,
-                    width: 1400
-
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('#imageGallery').lightSlider({
+            gallery:true,
+            item:1,
+            loop:true,
+            thumbItem:3,
+            slideMargin:0,
+            enableDrag: false,
+            currentPagerPosition:'left',
+            onSliderLoad: function(el) {
+                el.lightGallery({
+                    selector: '#imageGallery .lslide'
                 });
-            });
+            }
+        });
+    });
 </script>
 </body>
 </html>
