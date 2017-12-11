@@ -12,7 +12,7 @@
     {% include "header.html" %}
     <div class="container mobile-body" >
         <div class="row" style="margin-top: 50px">
-            <div class="col-md-6 gallery">
+            <div class="col-md-5 gallery">
                 <div class="mainimage center-block">
                     <ul id="imageGallery">
                         {% for image in good.images_set.all %}
@@ -51,23 +51,25 @@
                     {% endif %}
                 </div>
 
-                    <div class="price-detail" style="  font-size: 32px;
+                <div class="price-detail" style="  font-size: 32px;
     position: relative;
     bottom: 0;
     right: 0;
     margin-top: 45%;
-    text-align: right;">
+    text-align: right;
+    font-family: 'Baskerville Bold Win95BT', arial">
                     <p>{{ good.price }} руб.</p>
-                        </div>
+                </div>
 
             </div>
         </div>
         <div class="row">
-            <div class="col-md-6 description">
+            <div class="col-md-5 description">
                 <p>{{ good.description }}</p>
             </div>
         </div>
         <div class="recomend">
+            <p style="margin-bottom: 10px; font-family: 'Baskerville Bold Win95BT', arial;">Рекомендуем посмотреть</p>
             <ul class="related col-md-6">
                 {% for item in related %}
                     <li class="related-item col-md-4">
