@@ -623,11 +623,21 @@ nav ul li{
     and (-webkit-min-device-pixel-ratio: 2) {
 
     }
+    @media only screen
+    and (min-device-width: 320px)
+    and (max-device-width: 375px)
+    and (-webkit-min-device-pixel-ratio: 2)
+    and (orientation: portrait) {
+        .logo{
+            font-size: 34px!important;
+        }
+    }
+
 
     /* Portrait */
     @media only screen
-    and (min-device-width: 375px)
-    and (max-device-width: 667px)
+    and (min-device-width: 320px)
+    and (max-device-width: 800px)
     and (-webkit-min-device-pixel-ratio: 2)
     and (orientation: portrait) {
         .row {
