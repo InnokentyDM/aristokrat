@@ -3,7 +3,7 @@ from django.db import models
 from django.utils.safestring import mark_safe
 
 from categories.models import Categories
-from references.models import Genres, Authors
+from references.models import Genres
 
 
 
@@ -12,9 +12,12 @@ class GoodsBase(models.Model):
     name = models.CharField(max_length=50, null=True, blank=True, default=None, verbose_name='Название')
     description = models.TextField(null=True, blank=True, default=None, verbose_name='Описание')
     price = models.IntegerField(null=True, blank=True, default=None, verbose_name='Цена')
-    edition_date = models.DateTimeField(auto_now=True, blank=True, verbose_name='Дата изменения')
-    public = models.BooleanField(default=True, verbose_name='Публикация')
-    category = models.ManyToManyField(Categories, blank=True, default=None, verbose_name='Категории')
+    edition_date = models.DateTimeField(auto_now=True, blank=True, verbose_name='Дата добавления')
+    public = models.BooleanField(verbose_name='Публикация')
+    category = models.ForeignKey(Categories, blank=True, null=True, default=None, verbose_name='Категории')
+    author = models.CharField(max_length=100, null=True, blank=True, default=None, verbose_name='Автор')
+    creation_date = models.DateField(default=None, blank=True, null=True, verbose_name='Период создания')
+    genre = models.ForeignKey(Genres, blank=True, null=True, default=None, verbose_name='Жанр')
 
 class Images(models.Model):
     image = models.ImageField()
@@ -27,27 +30,24 @@ class Images(models.Model):
         verbose_name = 'Изображение'
         verbose_name_plural = 'Изображения'
 
-class Goods(GoodsBase):
-    def __str__(self):
-        return self.name
+# class Goods(GoodsBase):
+#     def __str__(self):
+#         return self.name
+#
+#     class Meta:
+#         verbose_name = 'Товар'
+#         verbose_name_plural = 'Другие товары'
 
-    class Meta:
-        verbose_name = 'Товар'
-        verbose_name_plural = 'Другие товары'
 
-
-class Pictures(GoodsBase):
-    genre = models.ForeignKey(Genres, blank=True, null=True, default=None, verbose_name='Стили')
-    author = models.ForeignKey(Authors, null=True, blank=True, default=None, verbose_name='Автор')
-    creation_date = models.DateField(default=None, blank=True, null=True, verbose_name='Дата создания')
-    size = models.CharField(max_length=12, blank=True, null=True, default=None, verbose_name='Размер')
-
-    def __str__(self):
-        return self.name
-
-    class Meta:
-        verbose_name = 'Картина'
-        verbose_name_plural = 'Картины'
+# class Pictures(GoodsBase):
+#     size = models.CharField(max_length=12, blank=True, null=True, default=None, verbose_name='Размер')
+#
+#     def __str__(self):
+#         return self.name
+#
+#     class Meta:
+#         verbose_name = 'Картина'
+#         verbose_name_plural = 'Картины'
 
 
 class Antiques(GoodsBase):

@@ -13,12 +13,12 @@ class Genres(models.Model):
         return self.name
 
 
-class Authors(models.Model):
-    name = models.CharField(max_length=50, blank=True, null=True, default=None, verbose_name='ФИО')
-
-    class Meta:
-        verbose_name_plural = 'Авторы'
-        verbose_name = 'Автор'
-
-    def __str__(self):
-        return self.name
+# class Authors(models.Model):
+#     name = models.CharField(max_length=50, blank=True, null=True, default=None, verbose_name='ФИО')
+#
+#     class Meta:
+#         verbose_name_plural = 'Авторы'
+#         verbose_name = 'Автор'
+#
+#     def __str__(self):
+#         return self.name

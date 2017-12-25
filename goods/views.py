@@ -20,13 +20,20 @@ class CategoryGoodsList(ListView):
         qs = GoodsBase.objects.filter(category__in=self.kwargs['id'] ,public=True).order_by('-edition_date')
         return qs
 
-class GoodsFilter(FilterView):
+class GoodsFilterView(FilterView):
     model = GoodsBase
     filterset_class = GoodsFilter
     template_name = 'goods.html'
 
+    def get_filterset_kwargs(self, filterset_class):
+        filter_kwargs = super(GoodsFilterView, self).get_filterset_kwargs(filterset_class)
+        if filter_kwargs["data"] is None:
+            filter_kwargs["data"] = {"category": self.kwargs.get('id')}
+        return filter_kwargs
+
+
     def get_context_data(self, **kwargs):
-        context = super(GoodsFilter, self).get_context_data(**kwargs)
+        context = super(GoodsFilterView, self).get_context_data(**kwargs)
         context['categories'] = Categories.objects.all()
         return context
 

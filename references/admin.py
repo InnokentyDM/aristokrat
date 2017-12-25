@@ -10,10 +10,10 @@ class GenresAdmin(admin.ModelAdmin):
 
 admin.site.register(Genres, GenresAdmin)
 
-class AuthorsAdmin(admin.ModelAdmin):
-    list_display = ["id", "name"]
-
-    class Meta:
-        model = Authors
-
-admin.site.register(Authors, AuthorsAdmin)
+# class AuthorsAdmin(admin.ModelAdmin):
+#     list_display = ["id", "name"]
+#
+#     class Meta:
+#         model = Authors
+#
+# admin.site.register(Authors, AuthorsAdmin)

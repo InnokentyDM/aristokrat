@@ -2,7 +2,8 @@
  * Created by Платон on 17.10.2017.
  */
 $(document).ready(function() {
-    $('#id_edition_date').attr('type', 'date');
+    $('#id_creation_date__gt').attr('type', 'date');
+    $('#id_creation_date__lt').attr('type', 'date');
     $('#id_edition_date').attr('value', '2017-10-22');
     $('#search-btn').click(function(e) {
         search = $('#search').val();

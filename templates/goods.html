@@ -27,10 +27,12 @@
                     {#                    <p>Цена</p>#}
                     {#                </li>#}
                     {#            </ul>#}
-
-                    <form class="goods-filter" action="" method="get">
+{#                    <button data-toggle="collapse" data-target="#collapse-filter">Фильтр</button>#}
+                    <form class="goods-filter" id="collapse-filter" action="" method="get">
                         {{ filter.form.as_p }}
-                        <input type="submit" />
+
+                        <button class="btn-default filter-button" name="name" value="value" type="submit">Выбрать</button>
+
                     </form>
                     {#                {% for obj in filter.qs %}#}
                     {#                    {{ obj.name }} - ${{ obj.price }}<br />#}

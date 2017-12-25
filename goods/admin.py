@@ -14,35 +14,32 @@ class GoodsBaseAdmin(admin.ModelAdmin):
     class Meta:
         model = GoodsBase
 
-class PicturesAdmin(admin.ModelAdmin):
-    list_display = ['id', 'name', 'description', 'price', 'public', 'genre', 'author', 'creation_date', 'size']
-    filter_horizontal = ('category',)
-    readonly_fields = ['edition_date']
-    inlines = [ImagesInline]
-    save_as = True
-
-    class Meta:
-        model = Pictures
-
-admin.site.register(Pictures, PicturesAdmin)
-
-
-class GoodsAdmin(admin.ModelAdmin):
-    list_display = ['id', 'name', 'description', 'price', 'public']
-    filter_horizontal = ('category',)
-    inlines = [ImagesInline]
-    save_as = True
-
-    class Meta:
-        model = Goods
-
-admin.site.register(Goods, GoodsAdmin)
+# class PicturesAdmin(admin.ModelAdmin):
+#     list_display = ['id', 'name', 'description', 'price', 'public', 'genre', 'author', 'creation_date', 'size', 'category']
+#     readonly_fields = ['edition_date']
+#     inlines = [ImagesInline]
+#     save_as = True
+#
+#     class Meta:
+#         model = Pictures
+#
+# admin.site.register(Pictures, PicturesAdmin)
+#
+#
+# class GoodsAdmin(admin.ModelAdmin):
+#     list_display = ['id', 'name', 'description', 'price', 'public', 'category']
+#     inlines = [ImagesInline]
+#     save_as = True
+#
+#     class Meta:
+#         model = Goods
+#
+# admin.site.register(Goods, GoodsAdmin)
 
 
 class AntiquesAdmin(admin.ModelAdmin):
     inlines = [ImagesInline]
-    list_display = ['id', 'name', 'description', 'price', 'public']
-    filter_horizontal = ('category',)
+    list_display = ['id', 'name', 'description', 'price', 'public', 'category', 'genre', 'creation_date', 'author', 'edition_date', ]
     save_as = True
 
     class Meta:
