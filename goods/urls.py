@@ -18,6 +18,7 @@ from django.conf.urls import url
 from goods.views import GoodsDetail, Search, GoodsFilterView
 
 urlpatterns = [
+    url(r'^/all', GoodsFilterView.as_view(), name='all'),
     url(r'^/(?P<id>\d+)', GoodsFilterView.as_view(), name='catalog'),
     url(r'^/goods/(?P<id>\d+)', GoodsDetail.as_view(), name='goods'),
     url(u'^/search/(?P<search>[\w\-]+)/$', Search.as_view(), name='search'),

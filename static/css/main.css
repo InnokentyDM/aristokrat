@@ -36,6 +36,7 @@ body, html{
 
 .krendel{
     height: 80px;
+    margin-bottom: 50px;
 }
 
 li, p, a{
@@ -217,13 +218,13 @@ img.related-images{
 
 .category-menu-wrapper{
     position: absolute;
-    top: 35%;
+    top: 30%;
     right: 20%;
 }
 
 .category-menu-wrapper{
     position: absolute;
-    top: 35%;
+    top: 30%;
     right: 20%;
 }
 
@@ -243,7 +244,7 @@ img.related-images{
 }
 
 .logo{
-    margin-left: 30px;
+    margin-left: 15px;
     line-height: 60px;
     font-size: 36px;
     color: #48342B;

@@ -17,7 +17,18 @@ class CategoryGoodsList(ListView):
     paginate_by = 30
 
     def get_queryset(self):
-        qs = GoodsBase.objects.filter(category__in=self.kwargs['id'] ,public=True).order_by('-edition_date')
+        qs = GoodsBase.objects.filter(category__in=self.kwargs['id'], public=True).order_by('-edition_date')
+        return qs
+
+class AllCategoriesList(ListView):
+    model = GoodsBase
+
+    context_object_name = 'goods'
+    template_name = 'goods.html'
+    paginate_by = 30
+
+    def get_queryset(self):
+        qs = GoodsBase.objects.filter(public=True).order_by('-edition_date')
         return qs
 
 class GoodsFilterView(FilterView):
