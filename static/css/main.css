@@ -63,12 +63,12 @@ img.gallery{
 
     position: relative;
     margin: auto;
-    left:25%;
 
 }
 
 .lslide{
     background: #fff;
+    text-align: center;
 }
 
 ul.related {
