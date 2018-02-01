@@ -60,7 +60,7 @@ footer{
 }
 
 img.gallery{
-
+    max-width: 457px;
     position: relative;
     margin: auto;
 
